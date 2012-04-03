@@ -2,35 +2,35 @@
 <metadata modelVersion="1.1.0">
   <groupId>com.google.gwt.maps</groupId>
   <artifactId>gwt-maps-api-v3</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>3.8.0-beta1-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20120402.223852</timestamp>
+      <timestamp>20120403.100643</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
-    <lastUpdated>20120402223852</lastUpdated>
+    <lastUpdated>20120403100643</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>1.0.0-20120402.223852-1</value>
-        <updated>20120402223852</updated>
+        <value>3.8.0-beta1-20120403.100643-1</value>
+        <updated>20120403100643</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.0.0-20120402.223852-1</value>
-        <updated>20120402223852</updated>
+        <value>3.8.0-beta1-20120403.100643-1</value>
+        <updated>20120403100643</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
-        <value>1.0.0-20120402.223852-1</value>
-        <updated>20120402223852</updated>
+        <value>3.8.0-beta1-20120403.100643-1</value>
+        <updated>20120403100643</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
-        <value>1.0.0-20120402.223852-1</value>
-        <updated>20120402223852</updated>
+        <value>3.8.0-beta1-20120403.100643-1</value>
+        <updated>20120403100643</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
