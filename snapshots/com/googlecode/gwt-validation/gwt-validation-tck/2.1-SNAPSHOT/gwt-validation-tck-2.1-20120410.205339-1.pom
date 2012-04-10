@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ GWT Validation Framework - A JSR-303 validation framework for GWT
+
+ (c) 2008 gwt-validation contributors (http://code.google.com/p/gwt-validation/) 
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ 
+ You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<artifactId>gwt-validation-tck</artifactId>
+	<name>GWT Validation TCK Runner</name>
+	<description>Aggregates dependencies and runs the JSR-303 TCK</description>
+	
+	<!-- gwt-validation parent -->
+	<parent>
+		<groupId>com.googlecode.gwt-validation</groupId>
+		<artifactId>gwt-validation-parent</artifactId>
+		<version>2.1-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<repositories>
+		<repository>
+			<id>jboss-releases</id>
+			<name>JBoss Releases</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<jboss.home>${env.JBOSS_HOME}</jboss.home>
+		<validation.provider>com.em.validation.client.spi.ValidationProviderImpl</validation.provider>
+		<remote.debug />
+		<!-- see http://maven.apache.org/general.html -->
+		<jdocbook.ignoreTranslations>false</jdocbook.ignoreTranslations>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.jsr303.tck</groupId>
+			<artifactId>jsr303-tck</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.jbossas.as7-cdi-tck</groupId>
+			<artifactId>jbossas-container</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.gwt-validation</groupId>
+			<artifactId>gwt-validation</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>${basedir}/testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<argLine>-Xmx256m</argLine>
+					<forkMode>once</forkMode>
+					<systemProperties>
+						<property>
+							<name>validation.provider</name>
+							<value>${validation.provider}</value>
+						</property>
+						<property>
+							<name>org.jboss.testharness.spi.StandaloneContainers</name>
+							<value>org.hibernate.jsr303.tck.util.StandaloneContainersImpl</value>
+						</property>
+					</systemProperties>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-test-report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report-only</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${project.build.directory}/surefire-reports</outputDirectory>
+					<outputName>test-report</outputName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
