@@ -5,6 +5,7 @@
   <version>2.1-SNAPSHOT</version>
   <versioning>
     <snapshot>
+<<<<<<< HEAD
       <timestamp>20120413.115100</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
@@ -14,6 +15,17 @@
         <extension>pom</extension>
         <value>2.1-20120413.115100-1</value>
         <updated>20120413115100</updated>
+=======
+      <timestamp>20120410.205213</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20120410205213</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>2.1-20120410.205213-1</value>
+        <updated>20120410205213</updated>
+>>>>>>> c17c594a0755f47bdbdd1366e82e6236b1409b37
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
